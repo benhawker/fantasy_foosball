@@ -15,9 +15,21 @@ input:focus:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px white inset;
 }
 
-.col-centered{
+.col-centered {
     float: none;
     margin: 0 auto;
+}
+
+/**********************************************************
+  BACKGROUND
+**********************************************************/
+
+html { 
+  background: url(bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 
@@ -25,9 +37,11 @@ input:focus:-webkit-autofill {
   NAVBAR
 **********************************************************/
 
+/*.navbar {
+	margin-bottom: 0;
+}*/
+
 .navbar-brand {
-
-
   h1 {
     color: $brand-primary;
     margin-top: 12px;
@@ -39,17 +53,25 @@ input:focus:-webkit-autofill {
 
 
 /**********************************************************
-  HOMEPAGE
-**********************************************************/
-
-
-
-
-
-
-/**********************************************************
   JUMBOTRON
 **********************************************************/
+
+.jumbotron {
+	padding: 2% 5% 2% 5%;
+	position: absolute;
+	top: 25%;
+	left:10%;
+	right:10%;
+
+	h2{
+		margin-top: 10px;
+	}
+
+	.btn {
+		margin-bottom: 10px;
+		width: 40%;
+	}
+}
 
 
 
