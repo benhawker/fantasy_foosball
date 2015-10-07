@@ -1,5 +1,7 @@
 <%= link_to "Create new match", new_match_path %>
 
+<p>Here are the latest matchups</p>
+
 <% if @matches.any? %>
 	<ul>
   <% @matches.each do |match| %>
