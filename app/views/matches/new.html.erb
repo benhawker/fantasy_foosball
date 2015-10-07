@@ -1,1 +1,11 @@
 Create your new matchup below
+
+<%= form_for [@match], :html => {:multipart => true} do |f| %>
+	<%= f.text_field :match_name, placeholder: "Enter Matchup Name (e.g. The Royal Rumble" %>
+	<%= f.select :team_one, User.all.map(&:first_name) %>
+	<%= f.select :team_two, User.all.map(&:first_name) %>
+  <%= f.submit "Create Match!", class: "form-control" %>
+<% end %>
+
+
+
