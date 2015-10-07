@@ -1,11 +1,15 @@
-Create your new matchup below
-
-<%= form_for [@match], :html => {:multipart => true} do |f| %>
-	<%= f.text_field :match_name, placeholder: "Enter Matchup Name (e.g. The Royal Rumble" %>
-	<%= f.select :team_one, User.all.map(&:first_name) %>
-	<%= f.select :team_two, User.all.map(&:first_name) %>
-  <%= f.submit "Create Match!", class: "form-control" %>
-<% end %>
+<div class="col-sm-6 col-centered">
+  <h2 class="text-center">Create your new matchup below</h2>
+	<%= form_for [@match], :html => {:multipart => true} do |f| %>
+		<%= f.text_field :match_name, placeholder: "Enter Matchup Name (e.g. The Royal Rumble", class: "form-control" %>
+		<%= f.label :player_one %>
+		<%= f.select :team_one, User.all.map(&:first_name), class: "form-control" %>
+		<br>
+		<%= f.label :player_two %>
+		<%= f.select :team_two, User.all.map(&:first_name), class: "form-control" %>
+	  <%= f.submit "Create Match!", class: "form-control" %>
+	<% end %>
+</div>
 
 
 

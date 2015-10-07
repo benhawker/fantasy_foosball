@@ -70,7 +70,7 @@ feature "match" do
     scenario 'lets a user view a match' do
      visit '/'
      click_link 'Matchup 1'
-     expect(page).to have_content 'Matchup 1'
+     expect(page).to have_content 'vs.'
      expect(current_path).to eq "/matches/#{match.id}"
     end
   end

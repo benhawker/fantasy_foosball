@@ -25,32 +25,17 @@ input:focus:-webkit-autofill {
   NAVBAR
 **********************************************************/
 
-
 .navbar-brand {
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-right: 10px;
-  display: block;
-  line-height: 50px;
+
 
   h1 {
-    color: white;
+    color: $brand-primary;
     margin-top: 12px;
     font-size: 1.3em;
     font-weight: bold;
-    padding: 0;
-    color: white;
     display: inline;
   }
-
-  p {
-  	color: white;
-  }
-
 }
-
-
-
 
 
 /**********************************************************
@@ -66,9 +51,6 @@ input:focus:-webkit-autofill {
   JUMBOTRON
 **********************************************************/
 
-.jumbotron {
-  border-radius: 0 !important;
-}
 
 
 
