@@ -29,8 +29,8 @@ feature "match" do
     it "can create a new match" do
       visit('/')
       sign_up(user)
-      click_link "New match"
-      expect(page).to have_content "Create your new matchup"
+      click_link "Create new match"
+      expect(page).to have_content "Create your new matchup below"
     end
   end
 end
