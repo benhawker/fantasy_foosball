@@ -1,0 +1,83 @@
+/**********************************************************
+  GLOBALS
+**********************************************************/
+
+p, a, li, h3, h4, h5, h6, input, label {
+  font-weight: 400;
+}
+
+/* Override Chrome autofill form input yellow color */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+input:focus:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+
+/**********************************************************
+  NAVBAR
+**********************************************************/
+
+
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 10px;
+  display: block;
+  line-height: 50px;
+
+  h1 {
+    color: white;
+    margin-top: 12px;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 0;
+    color: white;
+    display: inline;
+  }
+
+  p {
+  	color: white;
+  }
+
+}
+
+
+
+
+
+/**********************************************************
+  HOMEPAGE
+**********************************************************/
+
+
+
+
+
+
+/**********************************************************
+  JUMBOTRON
+**********************************************************/
+
+.jumbotron {
+  border-radius: 0 !important;
+}
+
+
+
+
+
+/**********************************************************
+  MATCH SHOW PAGE
+**********************************************************/
+
+
+
+
