@@ -28,14 +28,28 @@ feature "match" do
 
   let!(:user){ User.create }
 
-  context "creating a new match" do
-    it "can link to the match creation page" do
+  context 'no matches have been added' do
+    scenario 'should display a prompt to add a match' do
       visit('/')
       sign_up(user)
       click_link "Create new match"
       expect(page).to have_content "Create your new matchup below"
     end
+  end
 
+  context 'matches have been added' do
+    before do
+      Match.create(match_name: 'Matchup 1')
+    end
+
+    scenario 'display matches' do
+      visit '/'
+      expect(page).to have_content('Matchup 1')
+      expect(page).not_to have_content('No Matchups created')
+    end
+  end
+
+  context "creating a new match" do
     it "can fill in match details and save them" do
       visit('/')
       sign_up(user)
@@ -44,6 +58,47 @@ feature "match" do
       select('Ben', :from => 'match[team_one]')
       select('Ben', :from => 'match[team_two]')
       click_button "Create Match!"
+      expect(page).to have_content "Match created successfully"
+      expect(current_path).to eq '/'
+    end
+  end
+
+  context 'viewing matches' do
+
+  let!(:match){ Match.create(match_name: 'Matchup 1') }
+
+    scenario 'lets a user view a match' do
+     visit '/'
+     click_link 'Matchup 1'
+     expect(page).to have_content 'Matchup 1'
+     expect(current_path).to eq "/matches/#{match.id}"
+    end
+  end
+
+  context 'editing matches' do
+
+  let!(:match){ Match.create(match_name: 'Matchup 1') }
+
+    scenario 'let a user edit a match' do
+     visit '/'
+     click_link 'Edit Matchup 1'
+     fill_in "match[match_name]", with: "Matchup 2"
+     click_button 'Update Match!'
+     expect(page).to have_content 'Matchup 2'
+     expect(page).to have_content 'Match updated successfully'
+     expect(current_path).to eq '/'
+    end
+  end
+
+  context 'deleting matches' do
+
+  let!(:match){ Match.create(match_name: 'Matchup 1') }
+
+    scenario 'removes a match when a user clicks a delete link' do
+      visit '/'
+      click_link 'Delete Matchup 1'
+      expect(page).not_to have_content 'Matchup 1'
+      expect(page).to have_content 'Match deleted successfully'
     end
   end
 end

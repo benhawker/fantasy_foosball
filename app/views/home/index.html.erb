@@ -1,1 +1,14 @@
 <%= link_to "Create new match", new_match_path %>
+
+<% if @matches.any? %>
+	<ul>
+  <% @matches.each do |match| %>
+    <li><%= link_to match.match_name, match_path(match) %> </li>
+    <li><%= link_to "Edit #{match.match_name}", edit_match_path(match) %> </li>
+    <li><%= link_to "Delete #{match.match_name}", match_path(match), method: :delete %> </li>
+    <br>
+  <% end %>
+  </ul>
+<% else %>
+  <p>No matches yet.<p>
+<% end %>
