@@ -25,8 +25,8 @@ def sign_in(user)
 end
 
 feature "match" do
-
   let!(:user){ User.create }
+  let!(:user2){ User.create(first_name: "Bob") }
 
   context 'no teams have been added' do
     scenario 'should display a prompt to add a team' do
@@ -37,7 +37,7 @@ feature "match" do
     end
   end
 
-  context 'team have been added' do
+  context 'teams have been added' do
     before do
       Team.create(player_one: 'Ben', player_two: 'Bob')
     end
@@ -61,6 +61,19 @@ feature "match" do
       click_button "Create Team!"
       expect(page).to have_content "Team created successfully"
       expect(current_path).to eq '/teams'
+    end
+  end
+
+   context "viewing a team" do
+    it "can view a team and see all their previous matches" do
+      visit('/')
+      sign_up(user)
+      click_link "Create new team"
+      select('Ben', :from => 'team[player_one]')
+      select('Ben', :from => 'team[player_two]')
+      click_button "Create Team!"
+      click_link "Ben & Ben"
+      expect(page).to have_content("Team Records for Ben & Ben")
     end
   end
 end

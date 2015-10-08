@@ -72,14 +72,15 @@ feature "match" do
   end
 
   context 'viewing matches' do
+    let! (:team_one){ Team.create(player_one: 'Ben', player_two: 'Bob') }
+    let! (:team_two){ Team.create(player_one: 'Bill', player_two: 'Joe') }
 
-  let!(:match){ Match.create(match_name: 'Matchup 1') }
+    let! (:match){ Match.create(match_name: "Matchup 1", team_one: team_one, team_two: team_two) }
 
     scenario 'lets a user view a match' do
      visit '/'
      sign_up(user)
      click_link 'Matchup 1'
-     expect(page).to have_content 'vs.'
      expect(current_path).to eq "/matches/#{match.id}"
     end
   end
