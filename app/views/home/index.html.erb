@@ -19,10 +19,12 @@
 
 
 	<% else %>
+		<div class="md-col-6">
 			<div class="jumbotron absolute">
 			  <h2 class="text-center">We keep track of your awesome foosball skills :)</h2>
-			 	<%= link_to "Sign up", new_user_registration_path, role: "button", class: "btn btn-primary btn-lg" %>
-			  <%= link_to "Sign in", new_user_session_path, role: "button", class: "btn btn-primary btn-lg pull-right" %> 
+			  <div class="centered">
+    			<%= link_to "Join today!", new_user_registration_path, role: "button", class: "btn btn-larg btn-primary" %>
+				</div>
 			</div>
 	<% end %>
 </section>

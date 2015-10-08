@@ -44,6 +44,7 @@ feature "match" do
 
     scenario 'display matches' do
       visit '/'
+      sign_up(user)
       expect(page).to have_content('Matchup 1')
       expect(page).not_to have_content('No Matchups created')
     end
@@ -69,6 +70,7 @@ feature "match" do
 
     scenario 'lets a user view a match' do
      visit '/'
+     sign_up(user)
      click_link 'Matchup 1'
      expect(page).to have_content 'vs.'
      expect(current_path).to eq "/matches/#{match.id}"
@@ -81,6 +83,7 @@ feature "match" do
 
     scenario 'let a user edit a match' do
      visit '/'
+     sign_up(user)
      click_link 'Edit Matchup 1'
      fill_in "match[match_name]", with: "Matchup 2"
      click_button 'Update Match!'
@@ -96,6 +99,7 @@ feature "match" do
 
     scenario 'removes a match when a user clicks a delete link' do
       visit '/'
+      sign_up(user)
       click_link 'Delete Matchup 1'
       expect(page).not_to have_content 'Matchup 1'
       expect(page).to have_content 'Match deleted successfully'
