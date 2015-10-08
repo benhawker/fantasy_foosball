@@ -9,6 +9,20 @@ class MatchesController < ApplicationController
 
 	def create
     @match = Match.new(match_params)
+    # p "PARAMS:"
+    # p params
+    # p "TEAM ID:"
+    # p params[:match][:team_one]
+    # p "TEAM:"
+    # team = Team.find(params[:match][:team_one])
+    # p team
+    @match.teams << Team.find(params[:match][:team_one])
+    @match.teams << Team.find(params[:match][:team_two])
+    # @match.teams << Team.find(params[:team_two])
+    # @match.teams << team2
+
+    # @match.teams.build(match_params.merge({team_one: current_user}))
+
     if @match.save
     	flash[:notice] = 'Match created successfully'
     	redirect_to '/'
@@ -49,7 +63,8 @@ class MatchesController < ApplicationController
 
   def match_params
     params.require(:match).permit(:match_name, :team_one,
-    															:team_two, :best_of, :team_one_score, :team_two_score)
+    															:team_two, :best_of, 
+                                  :team_one_score, :team_two_score)
   end
 
 end

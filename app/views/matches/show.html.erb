@@ -1,5 +1,22 @@
 <div class="col-sm-6 col-centered">
  	<ul>
-		<li> <%= @match.team_one %> <%= @match.team_one_score %> - <%= @match.team_two %> <%= @match.team_two_score %> </li>
+		<li> 
+		Team One: <%= @match.teams.first.player_one %> & 
+
+		<% if @match.teams.first.player_two %> 
+			<%= @match.teams.first.player_two %> 
+		<% end %>
+
+		<%= @match.team_one_score %> </li>
+
+		<li> 
+		Team Two: <%= @match.teams.last.player_one %> & 
+
+		<% if @match.teams.last.player_two %> 
+			<%= @match.teams.last.player_two %> 
+		<% end %>
+
+		<%= @match.team_two_score %>
+		</li>
 	</ul>
 </div>

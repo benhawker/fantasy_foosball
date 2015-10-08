@@ -1,1 +1,11 @@
 <h2>Team Records for <%= @team.player_one %>  &  <%= @team.player_two %> </h2>
+
+<% @team.matches.each do |match| %>
+	<li>Match Name:<%= match.match_name %></li>
+	<li>Team One:<%= match.team_one %></li>
+	<li>Team Two:<%= match.team_two %></li>
+	<br>
+<% end %>
+
+<p>Team Matches Count:<%= @team.matches.count %></p>
+
