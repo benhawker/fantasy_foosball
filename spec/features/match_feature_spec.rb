@@ -62,6 +62,19 @@ feature "match" do
       expect(page).to have_content "Match created successfully"
       expect(current_path).to eq '/'
     end
+
+    it "can create 2 teams with 2 players" do
+      visit('/')
+      sign_up(user)
+      click_link "Create new match"
+      fill_in "match[match_name]", with: "Test Match"
+      select('Ben', :from => 'match[team_one_player_one]')
+      select('Ben', :from => 'match[team_one_player_two]')
+      select('Ben', :from => 'match[team_two_player_one]')
+      select('Ben', :from => 'match[team_two_player_two]')
+      click_button "Create Match!"
+      expect(page).to have_content "Match created successfully"
+    end
   end
 
   context 'viewing matches' do
