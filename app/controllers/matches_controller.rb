@@ -50,7 +50,7 @@ class MatchesController < ApplicationController
 
   def match_params
     params.require(:match).permit(:match_name, :team_one,
-    															:team_two, :best_of)
+    															:team_two, :best_of, :team_one_score, :team_two_score)
   end
 
 end

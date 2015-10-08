@@ -64,7 +64,7 @@ feature "match" do
       select('Ben & Bob', :from => 'match[team_one]')
       select('Bill & Joe', :from => 'match[team_two]')
       select('10', :from => 'match[team_one_score]')
-      elect('2', :from => 'match[team_two_score]')
+      select('2', :from => 'match[team_two_score]')
       click_button "Create Match!"
       expect(page).to have_content "Match created successfully"
       expect(current_path).to eq '/'
