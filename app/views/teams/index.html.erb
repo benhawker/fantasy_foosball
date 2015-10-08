@@ -5,7 +5,7 @@
 				<% if @teams.any? %>
 					<ul>
 				  <% @teams.each do |team| %>
-				  	<li><%= team.player_one %> and <%= team.player_two %></li>
+				  	<li><%= link_to "#{team.player_one}" + " & " "#{team.player_two}", team_path(team) %> </li>
 				  <% end %>
 				  </ul>
 				<% else %>
