@@ -74,6 +74,7 @@ feature "match" do
       click_button "Create Team!"
       click_link "Ben & Ben"
       expect(page).to have_content("Team Records for Ben & Ben")
+      expect(page).to have_content("")
     end
   end
 end

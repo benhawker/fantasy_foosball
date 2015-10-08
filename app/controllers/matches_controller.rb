@@ -8,7 +8,6 @@ class MatchesController < ApplicationController
 	end
 
 	def create
-    p params
     @match = Match.new(match_params)
     if @match.save
     	flash[:notice] = 'Match created successfully'
