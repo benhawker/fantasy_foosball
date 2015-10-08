@@ -1,3 +1,3 @@
 class Match < ActiveRecord::Base
-	has_many :participants
+	has_many :teams
 end

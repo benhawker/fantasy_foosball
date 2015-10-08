@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007142228) do
+ActiveRecord::Schema.define(version: 20151008112411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,16 +29,19 @@ ActiveRecord::Schema.define(version: 20151007142228) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.integer  "match_id"
+    t.integer  "team_id"
   end
 
-  add_index "participants", ["match_id"], name: "index_participants_on_match_id", using: :btree
+  add_index "participants", ["team_id"], name: "index_participants_on_team_id", using: :btree
   add_index "participants", ["user_id"], name: "index_participants_on_user_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "match_id"
   end
+
+  add_index "teams", ["match_id"], name: "index_teams_on_match_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -61,6 +64,7 @@ ActiveRecord::Schema.define(version: 20151007142228) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "participants", "matches"
+  add_foreign_key "participants", "teams"
   add_foreign_key "participants", "users"
+  add_foreign_key "teams", "matches"
 end
