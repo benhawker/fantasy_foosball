@@ -3,9 +3,12 @@ class MatchesController < ApplicationController
   def new
 		@match = Match.new
 		@users = User.all
+    2.times { @match.teams.build }
+    # @team = Team.new
 	end
 
 	def create
+    p params
     @match = Match.new(match_params)
     if @match.save
     	flash[:notice] = 'Match created successfully'
