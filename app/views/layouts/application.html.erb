@@ -27,7 +27,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <li><%= link_to "View ranking", new_match_path, class: "" %> </li>
+            <li><%= link_to "View ranking", ranking_path, class: "" %> </li>
             <li><%= link_to "All Teams", teams_path, class: "" %> </li>
             <li><%= link_to "Create new team", new_team_path, class: "" %></li>
             <li><%= link_to "Create new match", new_match_path, class: "" %> </li> 
@@ -51,6 +51,9 @@
       <% end %>
     <% end %>
   <%= yield %>
+
+  <section class="space-20"> </div>
+  
   </div>
 </body>
 </html>
