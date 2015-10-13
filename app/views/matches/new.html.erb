@@ -9,7 +9,7 @@
 		<%= f.label :team_two %>
 		<%= f.select :team_two, Team.all.collect {|team| ["#{team.player_one}" + " & " "#{team.player_two}", team.id] }, class: "form-control" %>
 		<%= f.select :team_two_score, (0..10), class: "form-control" %>
-	  <%= f.submit "Create Match!", class: "form-control" %>
+	  <%= f.submit "Create Match!", class: "form-control btn btn-primary" %>
 	<% end %>
 </div>
 

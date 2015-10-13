@@ -4,7 +4,7 @@
 		<%= f.text_field :match_name, placeholder: "Enter Matchup Name (e.g. The Royal Rumble", class: "form-control" %>
 		<%= f.select :team_one, User.all.map(&:first_name), class: "form-control" %>
 		<%= f.select :team_two, User.all.map(&:first_name), class: "form-control" %>
-	  <%= f.submit "Update Match!", class: "form-control" %>
+	  <%= f.submit "Update Match!", class: "form-control btn btn-primary" %>
 	<% end %>
 </div>
 

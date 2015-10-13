@@ -1,6 +1,6 @@
 	<div class="container">
 		<% if @teams.any? %>
-	 		<h2 class="text-center">Here are all the teams that have played together</h2> 
+	 		<h2 class="text-center">Team Leaderboard</h2> 
 		  <table class="table">
 		    <thead>
 		      <tr>
@@ -15,7 +15,7 @@
 			      <tr>
 			        <td><%= team.player_one %></td>
 			        <td><%= team.player_two %></td>
-			        <td><%= team.wins %></td>
+			        <td>*</td>
 			        <td><%= link_to "Delete Team", team_path(team), method: :delete %></td>
 			      </tr>
 		     	<% end %>

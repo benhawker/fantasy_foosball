@@ -23,6 +23,17 @@ class TeamsController < ApplicationController
 		@team = Team.find(params[:id])
 	end
 
+	# def destroy
+ #    @team = Team.find(params[:id])
+ #    if @team.destroy
+ #      flash[:notice] = 'Team deleted successfully'
+ #      redirect_to '/'
+ #    else
+ #      flash[:alert] = 'Sorry something went wrong. Your team was not deleted.'
+ #      redirect_to '/'
+ #    end
+ #  end
+
 	def team_params
     params.require(:team).permit(:player_one, :player_two)
   end

@@ -2,27 +2,22 @@ class MatchesController < ApplicationController
 	
   def new
 		@match = Match.new
-		@users = User.all
-    2.times { @match.teams.build }
+		# @users = User.all
+    # 2.times { @match.teams.build }
     # @team = Team.new
 	end
 
 	def create
     @match = Match.new(match_params)
-    # p "PARAMS:"
-    # p params
-    # p "TEAM ID:"
-    # p params[:match][:team_one]
-    # p "TEAM:"
-    # team = Team.find(params[:match][:team_one])
-    # p team
     @match.teams << Team.find(params[:match][:team_one])
     @match.teams << Team.find(params[:match][:team_two])
-    # @match.teams << Team.find(params[:team_two])
-    # @match.teams << team2
-
-    # @match.teams.build(match_params.merge({team_one: current_user}))
-
+    @match.assign_winner
+    @match.team_wins
+    # @match.teams << Team.find(params[:match][:winning_team])
+    # p "TEAM ONE SCORE:"
+    # p params[:match][:team_one_score]
+    # @match.teams.first. << Team.find(params[:match][:team_one_score])
+    # @match.teams. << Team.find(params[:match][:team_two_score])
     if @match.save
     	flash[:notice] = 'Match created successfully'
     	redirect_to '/'
@@ -64,7 +59,7 @@ class MatchesController < ApplicationController
   def match_params
     params.require(:match).permit(:match_name, :team_one,
     															:team_two, :best_of, 
-                                  :team_one_score, :team_two_score)
+                                  :team_one_score, :team_two_score, :winning_team)
   end
 
 end
